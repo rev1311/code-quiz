@@ -100,3 +100,22 @@ body {
     font-size: 50px;
     position: relative;
     transform: translateY(50%);
+}
+
+#scoreName {
+    font-size: 14px;
+    border-radius: 3px;
+    border:0 solid #000;
+}
+
+#scoreBtn {
+    font-size: 14px;
+    border-radius: 3px;
+    border:0 solid #000;
+    width: 25px;
+    
+}
+
+#highScore {
+
+}
