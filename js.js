@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var score = 0;
-    var secondsLeft = 15;
+    var secondsLeft = 5;
     // question objects 
     var questions = [
         {
@@ -68,7 +68,7 @@ $(document).ready(function() {
     
     // render questions, choices
     var qIndex = 0;
-    var lastQuestion = questions.length;
+    var lastQuestion = questions.length - 1;
        
     function  renderQuestion() {
         var q = questions[qIndex];
@@ -78,9 +78,18 @@ $(document).ready(function() {
         $("#choiceC").text(q.choices[2]);
     }
     
+    // if last question is answered, triggers game over
+    function endState() {
+      if ( questions[qIndex] >= lastQuestion) {
+        sendMessage();
+        $("#fnlScore").text(`Final Score: ${score}`);
+      } else {
+        return
+      }
+    }
 
    // onclick choice selected, evaluate correct, render next question
-   $("#choiceA").on("click", function(event) {
+   $("#choiceA").on("click", function() {
        var i = questions[qIndex].correct
        if ("#choiceA" === i){
            score++;
@@ -90,10 +99,11 @@ $(document).ready(function() {
            secondsLeft--;
        };
        qIndex++;
+       endState();
        renderQuestion();
    });
 
-   $("#choiceB").on("click", function(event) {
+   $("#choiceB").on("click", function() {
        var i = questions[qIndex].correct
        if ("#choiceB" === i){
            score++;
@@ -103,10 +113,11 @@ $(document).ready(function() {
            secondsLeft--;
        }; 
        qIndex++;
+       endState();
        renderQuestion();
    });
 
-   $("#choiceC").on("click", function(event) {
+   $("#choiceC").on("click", function() {
        var i = questions[qIndex].correct
        if ("#choiceC" === i){
            score++;
@@ -116,6 +127,7 @@ $(document).ready(function() {
            secondsLeft--;
        }; 
        qIndex++;
+       endState();
        renderQuestion();
    });
 
