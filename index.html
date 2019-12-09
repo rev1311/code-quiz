@@ -15,24 +15,30 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                <div id="timerDisplay">timer</div>
-            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6"><div id="timerDisplay">timer</div></div>
             <div class="col-6 col-sm-6 col-md-6 col-lg-6"><div id="score">score</div></div>
         </div>
         
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-10 box">
+                
                 <button type="button" id="start">Start Quiz!</button>
+                
                 <div id="quiz">
                     <div id="question"></div><br>
-                    <div>
+                    <div id="btns">
                     <button class="choices" id="choiceA"></button><br>
                     <button class="choices" id="choiceB"></button><br>
                     <button class="choices" id="choiceC"></button><br>
                     </div>
+            </div>
+
+                <div id="gameOver"><p>GAME OVER</p>
+                    <div id="fnlScore"></div>
+                    <input type="text" placeholder="Input Your Initials" id="scoreName"></input>
+                    <button id="scoreBtn">+</button>
+                    <div id="highScore"></div>
                 </div>
-                <div id="gameOver"><p>GAME OVER</p></div>
             </div>
         </div>
     
